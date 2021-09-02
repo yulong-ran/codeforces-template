@@ -3,79 +3,81 @@ import java.math.*;
 import java.util.*;
 
 public class Solution {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	StringTokenizer st;
 
-  BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-  StringTokenizer st;
+	public int solve(){
+		return -1;
+	}
+	
+	public void execute() throws IOException{
+		int n = nextInt();
 
-  private int solve(String[] input) throws IOException {
-    return -1;
-  }
+		String[] inputs = nextLines(n);
+		
 
-  private void execute() throws IOException {
-    int n = nextInt();
+		println(solve());
 
-    String[] inputs = nextLines(n);
+		
+		br.close();
+	}
 
-    print(solve(inputs));
-    System.out.println();
-    br.close();
-  }
+	public static void main(String[] args) throws IOException{
+		new Solution().execute();
+	}
 
-  public static void main(String[] args) throws IOException {
-    new Solution().execute();
-  }
+	void print(Object obj){
+		System.out.print(obj);
+	}
+	
+	void println(Object obj){
+		System.out.println(obj);
+	}
+	
+	String next() {
+		while(st == null || !st.hasMoreElements()){
+			try{
+				st = new StringTokenizer(br.readLine());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 
-  public static void print(Object obj) {
-    System.out.print(obj);
-  }
+		return st.nextToken();
+	}
 
-  public static void println(Object obj) {
-    System.out.println(obj);
-  }
+	String nextLine() {
+		String str = "";
+	
+		try {
+			str = br.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-  String next() {
-    while (st == null || !st.hasMoreElements()) {
-      try {
-        st = new StringTokenizer(br.readLine());
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-    }
+		return str;
+	}
+	
+	String[] nextLines(int lines) {
+		String[] inputs = new String[lines];
+	
+		for(int i=0; i<lines; i++){
+			inputs[i] = nextLine();
+		}
 
-    return st.nextToken();
-  }
+		return inputs;
+	}
 
-  String nextLine() {
-    String str = "";
-
-    try {
-      str = br.readLine();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-
-    return str;
-  }
-
-  String[] nextLines(int n) {
-    String[] inputs = new String[n];
-
-    for (int i = 0; i < n; i++) {
-      inputs[i] = nextLine();
-    }
-
-    return inputs;
-  }
-
-  int nextInt() {
-    return Integer.parseInt(next());
-  }
-
-  long nextLong() {
-    return Long.parseLong(next());
-  }
-
-  double nextDouble() {
-    return Double.parseDouble(next());
-  }
+	int nextInt() {
+		return Integer.parseInt(next());
+	}
+	
+	long nextLong() {
+		return Long.parseLong(next());
+	}
+	
+	double nextDouble() {
+		return Double.parseDouble(next());
+	}
+	
 }
