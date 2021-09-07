@@ -6,14 +6,21 @@ public class Solution {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	StringTokenizer st;
 
-	void solve(){
+	public int solve(int a, int b){
+		int years = 0;
+		while(a <= b){
+			a = a *3;
+			b = b *2;
+			years++;
+		}
 
+		return years;
 	}
 	
 	public void execute() throws IOException{
-		int n = nextInt();
-		
-		solve();
+		int n = 0;
+
+		println(solve(nextInt(), nextInt()));
 
 		
 		br.close();

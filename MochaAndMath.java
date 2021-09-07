@@ -5,16 +5,41 @@ import java.util.*;
 public class Solution {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	StringTokenizer st;
+	
+	/**
+	[3,11,3,7]
 
-	void solve(){
+	- If all elements are odd then anwser is the smallest number
+	- If there is an even number answer is 0
+	
+	0010
+	0011
 
+	[3,7,2]
+	
+	[2,7,2]
+
+	**/
+	public void solve(int n, String input){
+		String[] numbers = input.split(" ");
+
+		int mask = Integer.parseInt(numbers[0]);
+
+		for(int i=1; i<n; i++){
+			mask = mask & Integer.parseInt(numbers[i]);
+		}
+
+		println(mask);
+
+		return;
 	}
 	
 	public void execute() throws IOException{
 		int n = nextInt();
 		
-		solve();
-
+		for(int i=0 ;i<n; i++){
+			solve(nextInt(), nextLine());
+		}
 		
 		br.close();
 	}

@@ -6,14 +6,22 @@ public class Solution {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	StringTokenizer st;
 
-	void solve(){
-
+	public String solve(String s){
+		// 'a' has higher ascci value than 'A'
+		// If character a - 'a' is negative then it's uppercase
+		int low = 0, high = 0;
+		for(Character c: s.toCharArray()){
+			if(c - 'a' < 0){
+				high++;
+			}else{
+				low++;
+			}
+		}
+		return high > low ? s.toUpperCase() : s.toLowerCase();
 	}
 	
-	public void execute() throws IOException{
-		int n = nextInt();
-		
-		solve();
+	public void execute() throws IOException{		
+		println(solve(next()));
 
 		
 		br.close();

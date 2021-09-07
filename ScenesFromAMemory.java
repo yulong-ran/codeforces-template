@@ -5,16 +5,52 @@ import java.util.*;
 public class Solution {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	StringTokenizer st;
+	
+	boolean[] prime = new boolean[100];
 
-	void solve(){
+	public void  solve(int n, String s){
+		// Case 1; Contains non-primie digits
+		for(int i=0; i<n; i++){
+			if(s.charAt(i) == '1' || s.charAt(i)== '4' 
+			|| s.charAt(i) == '6' || s.charAt(i) == '9'){
+				println(1);
+				println(s.charAt(i));
+				return;
+			}
+		}
+
+
+		// Case 2+
+		for(int i=0; i<n; i++){
+			for(int j=i+1; j<n; j++){
+				int num =  (s.charAt(i) - '0') * 10  + (s.charAt(j)- '0');
+				if(!prime[num]){
+					println(2);
+					println(num);
+					return;
+				}
+			}
+		}		
 
 	}
+
+
 	
 	public void execute() throws IOException{
-		int n = nextInt();
-		
-		solve();
+		for(int i=2; i<100; i++){
+			prime[i] = true;
+			for(int j=2; j*j <=i; j++){
+				if(i % j == 0){
+					prime[i] = false;
+				}
+			}
+		}
 
+		int n = nextInt();
+
+		for(int i=0; i<n; i++){
+			solve(nextInt(), nextLine());
+		}
 		
 		br.close();
 	}

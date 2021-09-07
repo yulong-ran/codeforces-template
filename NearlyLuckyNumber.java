@@ -6,14 +6,24 @@ public class Solution {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	StringTokenizer st;
 
-	void solve(){
-
+	public String solve(long n){
+		if(n < 10){
+			return "NO";
+		}
+		int four= 0, seven = 0;
+		while(n > 0){
+			// Get the last decimal
+			int last =(int)( n % 10);
+			if(last == 4) four++;
+			if(last == 7) seven++;
+			n = n / 10;
+		}
+		int sum = four + seven;
+		return sum == 7 || sum == 4 ? "YES" : "NO";
 	}
 	
 	public void execute() throws IOException{
-		int n = nextInt();
-		
-		solve();
+		println(solve(nextLong()));
 
 		
 		br.close();

@@ -6,14 +6,23 @@ public class Solution {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	StringTokenizer st;
 
-	void solve(){
-
+	public int solve(int house){
+		int[] dp = new int[1000000+1];
+		Arrays.fill(dp, house);
+		for(int i=1; i<=house; i++){
+			if(i < 6){
+				dp[i] = 1;
+				continue;
+			}
+			for(int j=1; j<=5; j++){
+				dp[i] = Math.min(dp[i],  dp[i-j] + 1);
+			}
+		}
+		return dp[house];
 	}
 	
 	public void execute() throws IOException{
-		int n = nextInt();
-		
-		solve();
+		println(solve(nextInt()));
 
 		
 		br.close();

@@ -5,17 +5,46 @@ import java.util.*;
 public class Solution {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	StringTokenizer st;
+	
 
-	void solve(){
+	public void solve(int n, String s){
+		// ? is white R is red B is blue
+		char[] colors = s.toCharArray();
+		
+		int c = 0;
+		
+		for(char color: colors){
+			if(color != '?') c++;
+		}		
+		
+		if(c < 1){
+			colors[0] = 'B';
+		}
+		
+		// Assigning the color depends on i-1
+		for(int i=1; i<n; i++){
+			if(colors[i] == '?' && colors[i-1] != '?'){
+				colors[i] = colors[i-1] == 'B' ? 'R' : 'B';
+			}
+		}
+		
+		// Assigning the color depends on i + 1
+		for(int i=n-2; i>=0; i--){
+			if(colors[i] == '?' && colors[i+1] != '?'){
+				colors[i] = colors[i+1] == 'B' ? 'R' : 'B';
+			}
+		} 
 
+		println(String.valueOf(colors));
 	}
 	
 	public void execute() throws IOException{
 		int n = nextInt();
-		
-		solve();
 
-		
+		for(int i=0; i<n; i++){
+			solve(nextInt(), nextLine());
+		}
+
 		br.close();
 	}
 

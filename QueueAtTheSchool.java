@@ -6,14 +6,34 @@ public class Solution {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	StringTokenizer st;
 
-	void solve(){
+	public String solve(String input, int n){
+		// At each iteration, if input[i] is a B and input[i+1} is a gril,
+		// and we do this n time
+		char[] line = input.toCharArray();
+		
+		for(int i=0; i<n; i++){
+			int j = 0;
+			while(j + 1 < input.length()){
+				if(line[j] == 'B' && line[j+1] == 'G'){
+					line[j] = 'G';
+					line[j+1] = 'B';
+					j = j+2;
+				}else{
+					j++;
+				}
+			}
+			
+		}
 
+		return String.valueOf(line);
 	}
 	
 	public void execute() throws IOException{
 		int n = nextInt();
+		int m = nextInt();
+		String line = next();
 		
-		solve();
+		println(solve(line, m));
 
 		
 		br.close();

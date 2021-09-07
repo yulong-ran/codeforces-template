@@ -6,14 +6,20 @@ public class Solution {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	StringTokenizer st;
 
-	void solve(){
+	public int solve(int a, int b){
+		for(int i=0; i<b; i++){
+			if(a % 10 != 0){
+				a = a - 1;
+			}else{
+				a = a / 10;
+			}
+		}
 
+		return a;
 	}
 	
 	public void execute() throws IOException{
-		int n = nextInt();
-		
-		solve();
+		println(solve(nextInt(), nextInt()));
 
 		
 		br.close();

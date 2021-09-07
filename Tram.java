@@ -6,14 +6,27 @@ public class Solution {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	StringTokenizer st;
 
-	void solve(){
+	public int solve(int[][]stops){
+		int max = Integer.MIN_VALUE;
+		int count = 0;
+		for(int[] stop: stops){
+			count -= stop[0];
+			count += stop[1];
+			max = Math.max(max, count);
+		}
 
+		return max;
 	}
 	
 	public void execute() throws IOException{
 		int n = nextInt();
-		
-		solve();
+
+		int[][] stops = new int[n][2];
+		for(int i=0; i<n; i++){
+			stops[i][0] = nextInt();
+			stops[i][1] = nextInt();
+		}
+		println(solve(stops));
 
 		
 		br.close();
